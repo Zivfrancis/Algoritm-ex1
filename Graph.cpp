@@ -3,6 +3,8 @@
 
 Graph::Graph()
 {
+	numberOfEdges = 0;
+	numberOfVertices = 0;
 }
 
 Graph::~Graph()
@@ -36,7 +38,7 @@ bool Graph::IsAdjacent(int u, int v)const
 
 void Graph::AddEdge(int u, int v)
 {
-	if (u >= numberOfVertices || v >= numberOfVertices || v < 0 || u < 0)
+	if (u >= numberOfVertices || v >= numberOfVertices || v < 0 || u < 0 || v == u)
 	{
 		errorExit("Invalid input");
 	}
@@ -168,11 +170,12 @@ void Graph::VisitSuperGraph(int u, int rakahIndex, Graph& superGraph)
 		}
 		else if (vertices[v].GetColor() == BLACK)
 		{
-			int vRakah = superGraph.getLastNeighborInVertax(vertices[v].GetRakahIndex());
+			int vRakah = vertices[v].GetRakahIndex();
+			int vRakahLastNeighbor = superGraph.getLastNeighborInVertax(vRakah);
 			int uRakah = vertices[u].GetRakahIndex();
-			if (vRakah != uRakah)
+			if (vRakahLastNeighbor != uRakah && vRakah != uRakah)
 			{
-				superGraph.AddEdge(vertices[v].GetRakahIndex(), vertices[u].GetRakahIndex());
+				superGraph.AddEdge(vRakah, uRakah);
 			}
 		}
 	}
