@@ -44,6 +44,7 @@ void Graph::AddEdge(int u, int v)
 	if (IsAdjacent(u, v) == false)
 	{
 		vertices[u].neighborsList.push_back(v);
+		numberOfEdges++;
 	}
 }
 
@@ -124,7 +125,6 @@ Graph Graph::createSuperGraph()
 	endList.reverse();
 	auto superGraph = tranponse.DFSSuperGraph(endList);
 
-	cout << "The Super Graph Is:" << endl;
 	superGraph.Print();
 	return superGraph;
 }
@@ -182,15 +182,6 @@ void Graph::VisitSuperGraph(int u, int rakahIndex, Graph& superGraph)
 
 void Graph::Print()
 {
-	cout << "there is " << numberOfVertices << " vertices" << endl;
-
-	for (int i = 0; i < numberOfVertices; ++i)
-	{
-		Vertex v = vertices[i];
-
-		for (int edge : v.neighborsList)
-		{
-			cout << i << " " << edge << endl;
-		}
-	}
+	cout << numberOfVertices << " " << numberOfEdges;
 }
+
