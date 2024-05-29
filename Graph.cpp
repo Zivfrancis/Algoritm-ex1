@@ -25,7 +25,9 @@ void Graph::MakeEmptyGraph(int numOfVertices)
 
 bool Graph::IsAdjacent(int u, int v)const
 {
-	for (int neighbor : vertices[u].neighborsList)
+	const list<int>& uNeighborsList = vertices[u].GetNeighborsList();
+
+	for (int neighbor : uNeighborsList)
 	{
 		if (neighbor == v)
 		{
@@ -45,7 +47,7 @@ void Graph::AddEdge(int u, int v)
 
 	if (IsAdjacent(u, v) == false)
 	{
-		vertices[u].neighborsList.push_back(v);
+		vertices[u].AddNeighbor(v);
 		numberOfEdges++;
 	}
 }
@@ -58,9 +60,9 @@ void Graph::AddVertex(Vertex ver)
 
 int Graph::getLastNeighborInVertax(int u)
 {
-	if (vertices[u].neighborsList.empty() == false)
+	if (vertices[u].HasNeighbors() == true)
 	{
-		return vertices[u].neighborsList.back();
+		return vertices[u].GetNeighborsList().back();
 	}
 
 	return -1;
@@ -74,7 +76,9 @@ Graph Graph::Transpose()const
 
 	for (int u = 0; u < numberOfVertices; ++u)
 	{
-		for (int v : vertices[u].neighborsList)
+		const list<int> uNeighborsList = vertices[u].GetNeighborsList();
+
+		for (int v : uNeighborsList)
 		{
 			t.AddEdge(v, u);
 		}
@@ -108,7 +112,9 @@ void Graph::VisitEndList(int u, list<int>& endList)
 {
 	vertices[u].SetColor(GREY);
 
-	for (int v : vertices[u].neighborsList)
+	const list<int>& uNeighborsList = vertices[u].GetNeighborsList();
+
+	for (int v : uNeighborsList)
 	{
 		if (vertices[v].GetColor() == WHITE)
 		{
@@ -160,13 +166,15 @@ void Graph::VisitSuperGraph(int u, int rakahIndex, Graph& superGraph)
 {
 	vertices[u].SetColor(GREY);
 
-	for (int v : vertices[u].neighborsList)
+	const list<int>& uNeighborsList = vertices[u].GetNeighborsList();
+
+	for (int v : uNeighborsList)
 	{
 		if (vertices[v].GetColor() == WHITE)
 		{
 			vertices[v].SetRakahIndex(vertices[u].GetRakahIndex());
 
-			VisitSuperGraph(v, rakahIndex,superGraph);
+			VisitSuperGraph(v, rakahIndex, superGraph);
 		}
 		else if (vertices[v].GetColor() == BLACK)
 		{

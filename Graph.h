@@ -17,9 +17,9 @@ public:
 
 	void MakeEmptyGraph(int numOfVertices);
 	bool IsAdjacent(int u, int v)const;
-	inline list<int> GetAdjList(int u) const{ return vertices[u].neighborsList; }
+	inline const list<int>& GetAdjList(int u) const{ return vertices[u].GetNeighborsList(); }
 	void AddEdge(int u, int v);
-	void RemoveEdge(int u, int v) { vertices[u].neighborsList.remove(v); numberOfEdges--; }
+	void RemoveEdge(int u, int v) { vertices[u].RemoveNeighbor(v); numberOfEdges--; }
 	Graph Transpose()const;
 	void AddVertex(Vertex ver);
 	int getLastNeighborInVertax(int u);
