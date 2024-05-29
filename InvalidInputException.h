@@ -7,9 +7,6 @@ using namespace std;
 
 class  InvalidInputException : exception
 {
-public:
-	 InvalidInputException();
-	~ InvalidInputException();
 
 private:
 	const char* message = "Invalid input";
@@ -18,8 +15,9 @@ public:
 	InvalidInputException(){}
 	~InvalidInputException(){}
 
-	inline char const* what() const { return message; }
+	inline const char* GetMessage()const { return message; }
 
+	//inline char const* what() const override { return "Invalid input"; }
 };
 
 

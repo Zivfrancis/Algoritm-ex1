@@ -27,8 +27,15 @@ int main()
 			v -= 1;
 
 			graph.AddEdge(u, v);
-			graph.createSuperGraph();
 		}
+
+		
+		graph.createSuperGraph();
+	}
+	catch (InvalidInputException ex)
+	{
+		cout << ex.GetMessage();
+		return 1;
 	}
 	catch (exception ex)
 	{
