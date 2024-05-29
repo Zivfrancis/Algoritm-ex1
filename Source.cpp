@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include "Graph.h"
+#include"InvalidInputException.h"
 using namespace std;
 
 
@@ -14,20 +15,37 @@ int main()
 	cin >> m;
 
 	graph.MakeEmptyGraph(n);
-
-	for (int i = 0; i < m; ++i)
+	try
 	{
-		int u, v;
+		for (int i = 0; i < m; ++i)
+		{
+			int u, v;
 
-		cin >> u >> v;
+			cin >> u >> v;
 
-		u -= 1;
-		v -= 1;
+			u -= 1;
+			v -= 1;
 
-		graph.AddEdge(u, v);
+			graph.AddEdge(u, v);
+		}
+
+		
+		graph.createSuperGraph();
 	}
+	catch (InvalidInputException ex)
+	{
+		cout << ex.GetMessage();
+		return 1;
+	}
+	catch (exception ex)
+	{
+		cout << ex.what();
+		return 1;
+	}
+
+
 	
-	graph.createSuperGraph();
+	
 
 	return 0;
 }

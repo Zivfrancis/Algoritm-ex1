@@ -10,6 +10,7 @@ private:
 	vector<Vertex> vertices;
 	int numberOfVertices;
 	int numberOfEdges;
+	
 
 public:
 	Graph();

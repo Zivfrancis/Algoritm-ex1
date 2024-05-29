@@ -1,5 +1,7 @@
 #include"Graph.h"
 #include "Program.h"
+#include "InvalidInputException.h"
+#include <string>
 
 Graph::Graph()
 {
@@ -42,7 +44,8 @@ void Graph::AddEdge(int u, int v)
 {
 	if (u >= numberOfVertices || v >= numberOfVertices || v < 0 || u < 0 || v == u)
 	{
-		errorExit("Invalid input");
+		throw InvalidInputException();
+		//errorExit("Invalid input");
 	}
 
 	if (IsAdjacent(u, v) == false)
