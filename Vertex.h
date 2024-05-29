@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <list>
 #include "eVertexColor.h"
+
 using namespace std;
 
 class Vertex
 {
-	
-	
 private:
 	list<int> neighborsList;
 	eVertexColor color;
