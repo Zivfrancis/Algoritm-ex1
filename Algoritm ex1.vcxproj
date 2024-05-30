@@ -134,7 +134,6 @@
   <ItemGroup>
     <ClInclude Include="eVertexColor.h" />
     <ClInclude Include="Graph.h" />
-    <ClInclude Include="Program.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,11 +8,14 @@ using namespace std;
 class Vertex
 {
 private:
+	// List of neighboring vertices
 	list<int> neighborsList;
+	
 	eVertexColor color;
 	int indexOfRakah;
 
 public:
+	// Constructor to initialize a vertex with default values
 	Vertex() { neighborsList = list<int>(); color = WHITE; indexOfRakah = -1; }
 
 	inline eVertexColor GetColor()const { return color; }

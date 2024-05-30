@@ -7,7 +7,9 @@ using namespace std;
 class Graph
 {
 private:
+	// Vector to store all the vertices in the graph
 	vector<Vertex> vertices;
+
 	int numberOfVertices;
 	int numberOfEdges;
 	

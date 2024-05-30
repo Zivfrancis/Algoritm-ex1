@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-
+// Class to represent an exception for invalid input
 class  InvalidInputException
 {
 
@@ -14,6 +14,3 @@ public:
 
 	inline const char* GetMessage()const { return "Invalid input"; }
 };
-
-
-
