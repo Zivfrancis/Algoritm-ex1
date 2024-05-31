@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include"Vertex.h"
 #include"eVertexColor.h"
 #include<vector>

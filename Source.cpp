@@ -39,12 +39,12 @@ int main()
 	catch (const InvalidInputException& ex)
 	{
 		cout << ex.GetMessage();
-		return 1;
+		exit(1);
 	}
 	catch (const exception& ex)
 	{
 		cout << ex.what();
-		return 1;
+		exit(1);
 	}	
 
 	return 0;
