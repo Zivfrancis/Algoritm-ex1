@@ -1,4 +1,4 @@
-Algoritm ex1
+פרויקט בקורס אלגוריתם.
 
 Name: Matan Moskovich
 ID: 207653882
