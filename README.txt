@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Algoritm ex1
-=======
- Algoritm ex1
->>>>>>> 07423c8e5e65167fd8a286f0b71c91f2c36b45d9
 
 Name: Matan Moskovich
 ID: 207653882
